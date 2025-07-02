@@ -21,6 +21,6 @@ class Editor extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.editor');
+        return view('components.dashboard.editor');
     }
 }

@@ -15,7 +15,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth', 'verified']);
 
     // Notes
-    Route::get('/notes/store', [NoteController::class, 'store'])->name('notes.store');
+    Route::post('/notes/store', [NoteController::class, 'store'])->name('notes.store');
     Route::patch('/notes/update/{note}', [NoteController::class, 'update'])->name('notes.update');
     Route::delete('notes/destroy/{note}', [NoteController::class, 'destroy'])->name('notes.destroy');
 

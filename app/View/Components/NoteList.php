@@ -16,6 +16,6 @@ class NoteList extends Component
     }
     public function render(): View|Closure|string
     {
-        return view('components.note-list');
+        return view('components.dashboard.note-list');
     }
 }

@@ -18,6 +18,6 @@ class Categories extends Component
 
     public function render(): View|Closure|string
     {
-        return view('components.categories');
+        return view('components.dashboard.categories');
     }
 }
