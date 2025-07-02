@@ -22,7 +22,6 @@ Route::middleware('auth')->group(function () {
     //Profile
     Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');
     Route::delete('/categories/destroy/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
-
 });
 
 Route::middleware('auth')->group(function () {

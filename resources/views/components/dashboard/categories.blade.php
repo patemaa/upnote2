@@ -1,8 +1,8 @@
-<div class="px-2 py-2 bg-red-300/50 text lg basis-3/12 space-y-3 rounded">
+<div class="px-4 py-4 bg-red-300/50 text lg basis-3/12 space-y-3 rounded">
     <h1>Categories</h1>
-    <ul>
+    <ul id="categories-list">
         @foreach($categories as $category)
-            <li class="px-1 py-1 block bg-red-400/50 hover:bg-red-500/50 rounded mb-2 cursor-pointer">
+            <li  data-id="{{ $category->id }}" class="px-1 py-1 block bg-red-400/50 hover:bg-red-500/50 rounded mb-2 cursor-pointer">
                 {{ $category['name'] }}
             </li>
         @endforeach
