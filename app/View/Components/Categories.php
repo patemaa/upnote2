@@ -10,10 +10,12 @@ use Illuminate\View\Component;
 class Categories extends Component
 {
     public $categories;
+    public $selectedCategoryId;
 
-    public function __construct()
+    public function __construct($selectedCategoryId = null)
     {
         $this->categories = Category::all();
+        $this->selectedCategoryId = $selectedCategoryId;
     }
 
     public function render(): View|Closure|string

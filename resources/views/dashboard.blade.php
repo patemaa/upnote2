@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100 flex justify-items-center space-x-2">
                     <x-categories :selectedCategoryId="request()->route('categoryId')"></x-categories>
                     <x-note-list></x-note-list>
-                    <x-editor></x-editor>
+                    <x-editor :selected-note-id="$selectedNoteId"></x-editor>
                 </div>
             </div>
         </div>

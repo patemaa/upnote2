@@ -4,30 +4,61 @@ namespace App\Http\Controllers;
 
 use App\Models\Note;
 use Illuminate\Http\Request;
+
 class NoteController extends Controller
 {
-    // Not ekleme
+    public function index(Request $request)
+    {
+        $notes = Note::latest()->get();
+        if ($request->has('selected')) {
+            $selectedNoteId = Note::find($request->query('selected'))?->id;
+        } else {
+            $selectedNoteId = null;
+        }
+
+        return view('dashboard', [
+            'notes' => $notes,
+            'selectedNoteId' => $selectedNoteId,
+        ]);
+    }
+
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'string|max:255',
+        ]);
+
         $note = new Note();
         $note->title = $request->title;
         $note->body = $request->body;
         $note->user_id = auth()->id();
+        $note->category_id = $request->category_id;
         $note->save();
 
-        $note->categories()->sync($request->input('categories', []));
         return redirect('dashboard');
     }
 
-    // Not update etme
-    public function update()
+    public function update(Request $request, Note $note)
     {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'body' => 'nullable|string',
+        ]);
 
+        $note->update([
+            'title' => $request->title,
+            'body' => $request->body,
+        ]);
+
+        return redirect()->route('dashboard');
     }
 
-    // Not Silme
-    public function destroy()
-    {
 
+    public function destroy(Note $note)
+    {
+        $note->delete();
+
+        return redirect('dashboard');
     }
 }

@@ -2,9 +2,13 @@
     <h1>Notes</h1>
     <ul id="notes-list">
         @foreach($notes as $note)
-            <li  data-id="{{ $note->id }}" class="px-1 py-1 block bg-orange-400/50 hover:bg-orange-500/50 rounded mb-2 cursor-pointer">
+            @php
+                $isSelected = request('selected') == $note->id;
+                $url = $isSelected ? route('dashboard') : route('dashboard', ['selected' => $note->id]);
+            @endphp
+            <a href="{{ $url }}" data-id="{{ $note->id }}" class="{{ $isSelected ? 'bg-orange-700/50' : '' }} px-1 py-1 block bg-orange-400/50 hover:bg-orange-500/50 rounded mb-2 cursor-pointer">
                 {{ $note->title }}
-            </li>
+            </a>
         @endforeach
     </ul>
 </div>

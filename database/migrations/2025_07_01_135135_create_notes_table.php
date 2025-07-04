@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('is_favorite')->default(false);
             $table->boolean('is_pinned')->default(false);
             $table->integer('order_column')->default(0);
+            $table->foreignId('category_id')->nullable()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

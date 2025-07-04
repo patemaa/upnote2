@@ -15,13 +15,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth', 'verified']);
 
     // Notes
-    Route::post('/notes/store', [NoteController::class, 'store'])->name('notes.store');
-    Route::patch('/notes/update/{note}', [NoteController::class, 'update'])->name('notes.update');
-    Route::delete('notes/destroy/{note}', [NoteController::class, 'destroy'])->name('notes.destroy');
+    Route::post('/notes', [NoteController::class, 'store'])->name('notes.store');
+    Route::post('/notes/{note}', [NoteController::class, 'update'])->name('notes.update');
+    Route::delete('/notes/{note}', [NoteController::class, 'destroy'])->name('notes.destroy');
 
-    //Profile
-    Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');
-    Route::delete('/categories/destroy/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    //Categories
+    Route::post('/category', [CategoryController::class, 'store'])->name('category.store');
+    Route::delete('/category/destroy/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
+    Route::get('/category/{category}', [NoteController::class, 'show'])->name('category.show');
 });
 
 Route::middleware('auth')->group(function () {
