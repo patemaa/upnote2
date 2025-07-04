@@ -9,8 +9,8 @@ class CategorySeeder extends Seeder
 {
     public function run(): void
     {
-        Category::create(['name' => 'Favoriler']);
-        Category::create(['name' => 'İş Notları']);
-        Category::create(['name' => 'Kişisel']);
+        Category::create(['category_name' => 'Favoriler']);
+        Category::create(['category_name' => 'İş Notları']);
+        Category::create(['category_name' => 'Kişisel']);
     }
 }

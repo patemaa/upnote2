@@ -7,18 +7,20 @@ use Illuminate\Support\Facades\Request;
 
 class CategoryController extends Controller
 {
-    // kategori ekleme
     public function store(Request $request)
     {
-        $request->validate(['name' => 'required|string|max:255']);
+        $request->validate([
+            'category_name' => 'required|string|max:255',
+        ]);
 
-        $category =  new Category();
-        $category->name = $request->name;
-        $category->user_id = auth()->id();
+        Category::create([
+            'category_name' => $request->category_name,
+            'user_id' => auth()->id(),
+        ]);
 
-        return redirect('dashboard');
+        return redirect()->route('dashboard');
     }
-    // kategori silme
+
     public function destroy(Category $category)
     {
         $category->delete();

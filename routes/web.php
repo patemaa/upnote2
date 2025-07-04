@@ -20,9 +20,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/notes/{note}', [NoteController::class, 'destroy'])->name('notes.destroy');
 
     //Categories
-    Route::post('/category', [CategoryController::class, 'store'])->name('category.store');
-    Route::delete('/category/destroy/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
-    Route::get('/category/{category}', [NoteController::class, 'show'])->name('category.show');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+    Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    Route::get('/categories/{category}', [NoteController::class, 'show'])->name('categories.show');
 });
 
 Route::middleware('auth')->group(function () {
