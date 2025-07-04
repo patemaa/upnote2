@@ -9,8 +9,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 flex justify-items-center space-x-2">
-                    <x-categories :selectedCategoryId="request()->route('categoryId')"></x-categories>
-                    <x-note-list></x-note-list>
+                    <x-categories :categories="$categories"></x-categories>
+                    <x-note-list :notes="$notes"></x-note-list>
                     <x-editor :selected-note-id="$selectedNoteId"></x-editor>
                 </div>
             </div>

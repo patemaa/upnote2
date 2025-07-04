@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
     //Categories
     Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
     Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
-    Route::get('/categories/{category}', [NoteController::class, 'show'])->name('categories.show');
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
 });
 
 Route::middleware('auth')->group(function () {

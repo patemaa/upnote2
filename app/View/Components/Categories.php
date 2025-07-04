@@ -11,8 +11,9 @@ class Categories extends Component
 {
     public $categories;
     public $selectedCategoryId;
+    public $showModal = false;
 
-    public function __construct($selectedCategoryId = null)
+    public function __construct($selectedCategoryId = null, $categories = [])
     {
         $this->categories = Category::all();
         $this->selectedCategoryId = $selectedCategoryId;
