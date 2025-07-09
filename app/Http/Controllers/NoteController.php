@@ -8,23 +8,6 @@ use Illuminate\Http\Request;
 
 class NoteController extends Controller
 {
-    public function index(Request $request)
-    {
-        $notes = Note::latest()->get();
-        if ($request->has('selectedNote')) {
-            $selectedNoteId = Note::find($request->query('selected'))?->id;
-        } else {
-            $selectedNoteId = null;
-        }
-        $categories = Category::all();
-
-        return view('dashboard', [
-            'notes' => $notes,
-            'selectedNoteId' => $selectedNoteId,
-            'categories' => $categories,
-        ]);
-    }
-
     public function store(Request $request)
     {
         $request->validate([

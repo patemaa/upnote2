@@ -12,8 +12,8 @@ class Note extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->hasOne(Category::class, 'id', 'category_id');
     }
 }

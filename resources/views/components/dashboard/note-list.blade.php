@@ -8,7 +8,7 @@
                 $url = $isNoteSelected ? route('dashboard') : route('dashboard', ['selectedNote' => $note->id]);
             @endphp
             <div class="group flex justify-between items-center rounded mb-2 cursor-pointer {{ $isNoteSelected ? 'hover:bg-orange-800/50 bg-orange-700/50' : '' }}
-               {{ $isNoteInSelectedCategory ? 'bg-orange-200/60 hover:bg-orange-300/60' : 'bg-orange-400/50 hover:bg-orange-500/50' }}">
+               {{ $isNoteInSelectedCategory ? 'bg-orange-200/50 hover:bg-orange-300/50 border border-orange-500' : 'bg-orange-400/50 hover:bg-orange-500/50' }}">
                 <a href="{{ $url }}" data-id="{{ $note->id }}" class="flex-1 px-2 py-1">
                     {{ $note->title }}
                 </a>

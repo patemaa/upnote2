@@ -14,6 +14,6 @@ class Category extends Model
 
     public function notes()
     {
-        return $this->belongsToMany(Note::class);
+        return $this->hasMany(Note::class, 'category_id', 'id');
     }
 }

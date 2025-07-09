@@ -31,13 +31,4 @@ class CategoryController extends Controller
         $category->delete();
         return redirect('dashboard');
     }
-    public function show(Category $category)
-    {
-        $categories = Category::where('user_id', auth()->id())->get();
-        $note = Note::where('user_id', auth()->id())
-            ->where('category_id', $category->id)
-            ->orderBy('updated_at')
-            ->first();
-        return view('dashboard', ['categories' => $categories, 'selectedCategory' => $category, 'note' => $note]);
-    }
 }
