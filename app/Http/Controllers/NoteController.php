@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class NoteController extends Controller
 {
+    public function deneme()
+    {
+        return view('deneme');
+    }
     public function store(Request $request)
     {
         $request->validate([
